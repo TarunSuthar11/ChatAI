@@ -1,4 +1,5 @@
-import {route} from 'react-router-dom'
+
+import { Link } from 'react-router-dom'
 
 function App() {
 
@@ -7,6 +8,8 @@ function App() {
     <>
       <h1>hello</h1>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, consectetur aliquam quae soluta consequatur illum dolorum! Deserunt, voluptas magni accusamus beatae id, quos, ullam labore quia consequatur odio autem debitis.</p>
+      <Link to='/dashboard'>Hello</Link>
+
     </>
   )
 }
