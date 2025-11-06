@@ -1,0 +1,76 @@
+.dashboard {
+    height: 100%;
+    width: 100%;
+    margin: 0px 50px;
+    
+    
+    
+
+    .center {
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            font-size: 85px;
+            background: linear-gradient(to right, #5c70ef, rgb(246, 100, 217));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            opacity: 0.5;
+        }
+    }
+
+    .chatForm {
+        width: 75%;
+        justify-self: center;
+        border: 1px solid rgb(150, 147, 147);
+        padding: 10px 20px;
+        border-radius: 30px;
+        gap: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 5px  rgba(249, 238, 238, 0.5);
+
+        .in {
+            width: 100%;
+
+            .input {
+                display: flex;
+                flex: 7;
+                background-color: inherit;
+                color: rgb(197, 198, 199);
+                font-size: 18px;
+                border-style: none;
+                width: 100%;
+                outline: none;
+
+            }
+        }
+
+        .search {
+            background-color: inherit;
+          button {
+                background-color: inherit;
+                border-style: none;
+                display: flex;
+            align-items: center;
+
+                img {
+                    background-color: inherit;
+                    height: 38px;
+                    transform: rotate(270deg);
+                }
+            }
+
+
+
+
+
+
+        }
+    }
+}

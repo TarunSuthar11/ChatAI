@@ -4,19 +4,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-
 }
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 
 body {
-  color: white;
-  background-color: #242424;
-  font-weight: 300;
- 
+  background-color: rgb(27,28,29);
+  color: #ececec;
+  font-family: 'Inter', sans-serif;
 }
 
