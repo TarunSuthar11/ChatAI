@@ -1,76 +1,28 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import App from './App.jsx'
 import { ClerkProvider } from '@clerk/clerk-react'
+import { ImageKitProvider } from '@imagekit/react'
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
 
-//pages imported
-import Dashboard from './routes/dashboard/Dashboard'
-import Home from './routes/home/Home'
-import Chat from './routes/chat/Chat'
-import Layout from './layout/Layout'
-import DashboardLayout from './layout/DashboardLayout'
-import SignInPage from './routes/signIn/SignInPage'
-import SignUpPage from './routes/signUp/SignUpPage'
+const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
-// Import your Publishable Key
-const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
 if (!PUBLISHABLE_KEY) {
-  throw new Error('Missing Publishable Key')
+  throw new Error('Add your Clerk Publishable Key')
 }
 
-
-
-
-// const router = createBrowserRouter(
-//   createRoutesFromChildren(
-//     <Route>
-
-//     </Route>
-//   )
-// )
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Layout />,
-    children: [
-      {
-        path: '/',
-        element: <Home />
-      },
-      {
-        path: '/sign-in/*',
-        element: <SignInPage />
-      },
-      {
-        path: '/sign-up/*',
-        element: <SignUpPage />
-      },
-      {
-        path: '/dashboard',
-        element: <DashboardLayout />,
-        children: [
-
-          {
-            path: '/dashboard',
-            element: <Dashboard />
-          },
-          {
-            path: '/dashboard/chats/:id',
-            element: <Chat />
-          }
-        ]
-      }
-    ]
-  },
-])
+const queryClient = new QueryClient()
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
-      <RouterProvider router={router} />
-    </ClerkProvider>
-  </StrictMode>,
+    <QueryClientProvider client={queryClient}>
+      <ImageKitProvider urlEndpoint={import.meta.env.VITE_IMAGEKIT_URL_ENDPOINT}>
+        <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
+          <App />
+        </ClerkProvider>
+      </ImageKitProvider>
+    </QueryClientProvider>
+  </StrictMode>
 )

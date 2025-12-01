@@ -1,20 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import "tailwindcss";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+
+html.light {
+    --primary-bg-color:#ffffff;
+    --secondary-bg-color:#f9f9f9;
+    --ternary-bg-color:#ececec;
+    --primary-text-color:#0d0d0d;
+    --secondary-text-color:#8f8f8f;
+    --ternary-text-color:#181818;
+
+    
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+html.dark {
+    --primary-bg-color:#212121;
+    --secondary-bg-color:#181818;
+    --ternary-bg-color:#303030;
+    --primary-text-color: white;
+    --secondary-text-color:#959292;
+    --ternary-text-color:#181818;
+}
+
+body{
+   
+    background-color: var(--primary-bg-color);
+}
+
+::-webkit-scrollbar{
+    display: none;
 }
 
 
-body {
-  background-color: rgb(27,28,29);
-  color: #ececec;
-  font-family: 'Inter', sans-serif;
-}
+
 
