@@ -14,7 +14,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(cors({
-  origin : process.env.CLIENT_URL,
+  origin: process.env.CLIENT_URL,
   credentials: true,
 }));
 
@@ -33,6 +33,9 @@ const client = new ImageKit({
 //   );
 //   next();
 // });
+app.get("/", (req, res) => {
+  res.send("Hello from ChatAI Server 👋");
+});
 
 app.get("/api/auth", function (req, res) {
   const { token, expire, signature } =
