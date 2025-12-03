@@ -8,7 +8,7 @@ import '../styles/geminiMarkdown.css'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 
-const NewPrompt = ({ data, initialPrompt }) => {
+const NewPrompt = ({ data }) => {
   
   const [question, setQuestion] = useState('')
   const [prompt, setPrompt] = useState('')
@@ -70,7 +70,9 @@ const NewPrompt = ({ data, initialPrompt }) => {
   });
 
 
-  const add = async (userPrompt) => {
+  const add = async (userPrompt, isInitial) => {
+    // if (!isInitial) setPrompt(userPrompt);
+    
     let timer;
 
     await main(
@@ -78,7 +80,7 @@ const NewPrompt = ({ data, initialPrompt }) => {
       (chunk) => {
         setAnswer(prev => prev + chunk);
 
-        // Reset timer on every new chunk
+        // Reset timerr on every new chunk
         clearTimeout(timer);
 
         timer = setTimeout(() => {
@@ -106,23 +108,44 @@ const NewPrompt = ({ data, initialPrompt }) => {
 
     setThinking(true);
 
+   
     // store question for display
-    let userPrompt = question.trim();
+    const userPrompt = question.trim();
     setPrompt(userPrompt);
 
     // clear textarea
     setQuestion("");
 
     // run AI with the original question
-    await add(userPrompt);
+    
+    await add(userPrompt,false);
+    
     setThinking(false);
-  };
+
+  }
+
 
   // e.preventDefault();
   // if (!question.trim()) return;
   // setThinking(true);
 
   // add();
+
+  const hasRun = useRef(false);
+
+  useEffect(() => {
+    if (!hasRun.current) {
+      console.log(data);
+      
+    
+      const last = data?.history?.[data.history.length - 1];
+        if (last?.role === "user" && data?.history?.length === 1) {
+          add(data.history[0].parts[0].text, true);
+          setThinking(true);
+        }
+      }
+      hasRun.current = true;
+  }, []);
 
 
   return (
@@ -158,14 +181,14 @@ const NewPrompt = ({ data, initialPrompt }) => {
       </div>}
 
 
-      <div className="flex justify-end" ref={bottomRef}></div>
+      <div className="flex justify-end mb-2" ref={bottomRef}></div>
 
-      <div className="px-2 pb-4 pt-1  md:px-3  text-md flex items-center   bg-(--primary-bg-color)/80  sticky z-20 bottom-0 ">
+      <div className="px-2 pb-5 pt-1  md:px-3 max-w-full  text-md flex items-center   bg-(--primary-bg-color)/80  sticky z-20 bottom-0 ">
 
         <form action="" className="flex-1  flex gap-2 bg-blend-normal " onSubmit={handleSubmit} ref={formRef}>
-          <div className=" flex-1 flex  border border-(--secondary-text-color) rounded-3xl items-center pl-4  px-2 py-1   bg-(--secondary-bg-color)  ">
+          <div className=" flex-1 flex max-w-full  border border-(--secondary-text-color) rounded-3xl items-center pl-4  px-2 py-1   bg-(--secondary-bg-color)  ">
             <textarea
-              className="outline-none flex-1 max-h-43 w-full overflow-y-auto py-1 field-sizing-content resize-none"
+              className="outline-none flex-1 max-h-43 max-w-full overflow-y-auto py-1 field-sizing-content resize-none"
               placeholder="Ask ChatAI..." name="text" disabled={thinking} value={question} onChange={(e) => setQuestion(e.target.value)} />
 
             <Upload setImage={setImage} />

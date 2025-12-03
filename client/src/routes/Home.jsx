@@ -38,6 +38,7 @@ export default function HomePage() {
     if (!text) return;
 
     mutation.mutate(text);
+    e.target.reset();
   };
 
 
@@ -50,15 +51,15 @@ export default function HomePage() {
         </div>
 
         <div className="flex gap-2 md:gap-4 flex-wrap justify-center">
-          <button onClick={() => mutation.mutate("Ask ChatAI Anything")} className="bg-(--ternary-bg-color) cursor-pointer  rounded-2xl px-4 py-2">
+          <button onClick={() => mutation.mutate(`Hey ChatAI, I am ${user?.firstName}.`)} className="bg-(--ternary-bg-color) cursor-pointer  rounded-2xl px-4 py-2">
             <span>Ask ChatAI</span>
           </button>
 
-          <button onClick={() => mutation.mutate("Analyze & Understand Images")} className="bg-(--ternary-bg-color) cursor-pointer  rounded-2xl px-4 py-2">
+          <button onClick={() => mutation.mutate("Can you Analyze & Understand Images? tell me in short!")} className="bg-(--ternary-bg-color) cursor-pointer  rounded-2xl px-4 py-2">
             <span>Analyze Images</span>
           </button>
 
-          <button onClick={() => mutation.mutate("Find Solutions of Your Study & Project Problems")} className="bg-(--ternary-bg-color) cursor-pointer  rounded-2xl px-4 py-2">
+          <button onClick={() => mutation.mutate("Can You Find Solutions for My Study & Project Problems? tell me in short!")} className="bg-(--ternary-bg-color) cursor-pointer  rounded-2xl px-4 py-2">
             <span>Find Solutions</span>
           </button>
         </div>

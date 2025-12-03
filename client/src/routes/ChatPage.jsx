@@ -38,9 +38,9 @@ export default function ChatPage() {
               />
             </div>
           )}
-          {chat.role === "user" && (
+          {i !== 0 && chat.role === "user" && (
             <div className="flex justify-end ">
-              <span className="p-2 bg-(--ternary-bg-color) rounded-2xl px-3 m-2 max-w-[80%] ">{chat.parts[0].text}</span>
+              <span className="p-1.5 bg-(--ternary-bg-color) rounded-xl px-3 m-2 max-w-[80%] ">{ chat.parts[0].text }</span>
             </div>
           )}
           {chat.role === "model" && (
