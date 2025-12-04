@@ -1,9 +1,10 @@
-# ChatAi
+# ChatAi 
+## Based on Gemini API
+### The App ChatAI is production-ready chat application built with React, Node.js, MongoDB, Gemini API, Clerk Authentication, and ImageKit for image optimization.
+### ChatAI provides AI-powered responses, supports image inputs, stores user chat history, and delivers a clean, fast, and intuitive user interface.
 
 ## Screenshots
-
-<div style="display:flex,flex-direction:column,justify-content:center">
-### Light
+<p align="center">
 <img src="/client/Screenshots/Screenshot1.png" width="200" >
 <img src="/client/Screenshots/Screenshot2.png" width="200">
 <img src="/client/Screenshots/Screenshot3.png" width="200">
@@ -28,8 +29,8 @@
 <img src="/client/Screenshots/Screenshot10.png" width="350">
 <img src="/client/Screenshots/Screenshot11.png" width="350">
 <img src="/client/Screenshots/Screenshot12.png" width="350">
+</p>
 
-</div>
 <!-- ![Screenshot](/client/Screenshots/Screenshot9.png)
 ![Screenshot](/client/Screenshots/Screenshot10.png)
 ![Screenshot](/client/Screenshots/Screenshot11.png)
