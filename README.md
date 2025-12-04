@@ -28,6 +28,8 @@
 <img src="/client/Screenshots/Screenshot10.png" width="350">
 <img src="/client/Screenshots/Screenshot11.png" width="350">
 <img src="/client/Screenshots/Screenshot12.png" width="350">
+
+</div>
 <!-- ![Screenshot](/client/Screenshots/Screenshot9.png)
 ![Screenshot](/client/Screenshots/Screenshot10.png)
 ![Screenshot](/client/Screenshots/Screenshot11.png)
