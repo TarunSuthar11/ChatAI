@@ -2,8 +2,9 @@
 
 ## Screenshots
 
+<div style="display:flex,justify-content:center">
 ### Light
-<img src="/client/Screenshots/Screenshot1.png" width="200">
+<img src="/client/Screenshots/Screenshot1.png" width="200" >
 <img src="/client/Screenshots/Screenshot2.png" width="200">
 <img src="/client/Screenshots/Screenshot3.png" width="200">
 <img src="/client/Screenshots/Screenshot4.png" width="200">
