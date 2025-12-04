@@ -2,7 +2,7 @@
 
 ## Screenshots
 
-<div style="display:flex,justify-content:center">
+<div style="display:flex,flex-direction:column,justify-content:center">
 ### Light
 <img src="/client/Screenshots/Screenshot1.png" width="200" >
 <img src="/client/Screenshots/Screenshot2.png" width="200">
